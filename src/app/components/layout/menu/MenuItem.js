@@ -83,7 +83,7 @@ import FlyingButton from 'react-flying-item';
             onChange={() => setSelectedSize(size)}
             checked={selectedSize?.name === size.name}
             name="size" />
-           {size.name} ${basePrice + size.price}
+             {size.name} ₹{basePrice + size.price}
           </label>
          ))}
         </div>
@@ -100,7 +100,7 @@ import FlyingButton from 'react-flying-item';
             onChange={ev => handleExtraThingClick(ev, extraThing)}
             checked={selectedExtras.map(e => e._id).includes(extraThing._id)}
             name={extraThing.name} />
-           {extraThing.name} ${extraThing.price}
+             {extraThing.name} ₹{extraThing.price}
           </label>
          ))}
         </div>
@@ -111,7 +111,7 @@ import FlyingButton from 'react-flying-item';
         src={image} >
         <div className="primary sticky bottom-2"
          onClick={handleAddToCartButtonClick} >
-         Add to cart ${selectedPrice}
+                 Add to cart ₹{selectedPrice}
         </div>
        </FlyingButton>
        <button

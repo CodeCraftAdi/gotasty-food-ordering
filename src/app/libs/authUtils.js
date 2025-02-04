@@ -1,17 +1,13 @@
-// authUtils.js
+// src/app/utils/authUtils.js
 import { getServerSession } from "next-auth";
 import { UserInfo } from "@/app/models/UserInfo";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/libs/authOptions"; // Update import
 
 export async function isAdmin() {
     const session = await getServerSession(authOptions);
     const userEmail = session?.user?.email;
-    if (!userEmail) {
-        return false;
-    }
+    if (!userEmail) return false;
+
     const userInfo = await UserInfo.findOne({ email: userEmail });
-    if (!userInfo) {
-        return false;
-    }
-    return userInfo.admin;
+    return userInfo?.admin || false;
 }

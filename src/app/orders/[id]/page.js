@@ -26,7 +26,7 @@ export default function OrderPage() {
         });
       })
     }
-  }, []);
+  }, [clearCart, id]); 
 
   let subtotal = 0;
   if (order?.cartProducts) {
@@ -34,7 +34,7 @@ export default function OrderPage() {
       subtotal += cartProductPrice(product);
     }
   }
-  
+
   return (
     <section className="max-w-2xl mx-auto text-center mt-8">
       <div className="text-center">
@@ -62,7 +62,7 @@ export default function OrderPage() {
               <br />
               Total:
               <span className="text-black font-bold inline-block w-8">
-                ${subtotal + 5}
+                ₹{subtotal + 5}
               </span>
               <br />
             </div>

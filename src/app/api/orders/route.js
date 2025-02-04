@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 // import { authOptions, isAdmin } from "../auth/[...nextauth]/route";
 import { Order } from "@/app/models/Order";
 import { isAdmin } from "@/app/libs/authUtils";
+import { authOptions } from "@/app/libs/authOptions";
 
 export async function GET(req) {
     mongoose.connect(process.env.MONGO_URL);
